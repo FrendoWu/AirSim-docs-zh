@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>下载二进制文件 - AirSim中文文档</title>
+  <title>ROS - AirSim中文文档</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u4e0b\u8f7d\u4e8c\u8fdb\u5236\u6587\u4ef6";
-    var mkdocs_page_input_path = "use_precompiled.md";
+    var mkdocs_page_name = "ROS";
+    var mkdocs_page_input_path = "ros.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -57,27 +57,9 @@
 		
     <span class="caption-text">搭建AirSim</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">下载二进制文件</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#download-binaries">Download Binaries</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#unreal-engine">Unreal Engine</a></li>
-        
-            <li><a class="toctree-l4" href="#unity-experimental">Unity (Experimental)</a></li>
-        
-            <li><a class="toctree-l4" href="#controlling-vehicles">Controlling Vehicles</a></li>
-        
-            <li><a class="toctree-l4" href="#dont-have-good-gpu">Don't Have Good GPU?</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../use_precompiled/">下载二进制文件</a>
                 </li>
                 <li class="">
                     
@@ -150,9 +132,31 @@
                     
     <a class="" href="../lidar/">LIDAR</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../ros/">ROS</a>
+    <a class="current" href="./">ROS</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#how-to-use-airsim-with-robot-operating-system-ros">How to use AirSim with Robot Operating System (ROS)</a></li>
+    
+
+    <li class="toctree-l3"><a href="#python">Python</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#prerequisites">Prerequisites</a></li>
+        
+            <li><a class="toctree-l4" href="#setup">Setup</a></li>
+        
+            <li><a class="toctree-l4" href="#how-to-run-ros-airsim-nodes">How to run ROS AirSim nodes</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#c-coming-soon">C++ (coming soon)</a></li>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -214,14 +218,14 @@
     
       
         
-          <li>搭建AirSim &raquo;</li>
+          <li>Using AirSim &raquo;</li>
         
       
     
-    <li>下载二进制文件</li>
+    <li>ROS</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/FrendoWu/AirSim-docs-zh/edit/master/docs/use_precompiled.md"
+        <a href="https://github.com/FrendoWu/AirSim-docs-zh/edit/master/docs/ros.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -231,19 +235,41 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="download-binaries">Download Binaries</h1>
-<p>You can simply download precompiled binaries and run to get started immediately. If you want to set up your own Unreal environment then please see <a href="https://github.com/Microsoft/AirSim/#how-to-get-it">these instructions</a>.</p>
-<h3 id="unreal-engine">Unreal Engine</h3>
-<p><strong>Windows</strong>: Download the binaries for the environment of your choice from the <a href="https://github.com/Microsoft/AirSim/releases">latest release</a>.</p>
-<p><strong>Linux</strong>: Binaries for Ubuntu 16.04 LTS is coming soon. For now you will need to <a href="../build_linux/">build it on Linux</a> yourself.</p>
-<h3 id="unity-experimental">Unity (Experimental)</h3>
-<p>A free environment called Windridge City is available at <a href="https://assetstore.unity.com/">Unity Asset Store</a> as an experimental release of AirSim on Unity. Please note that this is work in progress and all features may not work yet.</p>
-<h2 id="controlling-vehicles">Controlling Vehicles</h2>
-<p>Most of our users typically use <a href="../apis/">APIs</a> to control the vehicles. However if you can also control vehicles manually. You can drive the car using keyboard, gamepad or <a href="../steering_wheel_installation/">steering wheel</a>. To fly drone manually, you will need either XBox controller or a remote control (feel free to <a href="../CONTRIBUTING.md">contribute</a> keyboard support). Please see <a href="../remote_control/">remote control setup</a> for more details. Alternatively you can use <a href="../apis/">APIs</a> for programmatic control or use so-called <a href="../image_apis/">Computer Vision mode</a> to move around in environment using the keyboard.</p>
-<h2 id="dont-have-good-gpu">Don't Have Good GPU?</h2>
-<p>The AirSim binaries, like CityEnviron, requires a beefy GPU to run smoothly. You can run them in low resolution mode by editing the <code>run.bat</code> file on Windows like this:</p>
-<pre><code>start CityEnviron -ResX=640 -ResY=480 -windowed
+                <h1 id="how-to-use-airsim-with-robot-operating-system-ros">How to use AirSim with Robot Operating System (ROS)</h1>
+<p>AirSim and ROS can be integrated using C++ or Python.  Some example ROS nodes are provided demonstrating how to publish data from AirSim as ROS topics.</p>
+<h1 id="python">Python</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>These instructions are for Ubuntu 16.04, ROS Kinetic, UE4 4.18 or higher, and latest AirSim release.
+You should have these components installed and working before proceeding</p>
+<h2 id="setup">Setup</h2>
+<h3 id="create-a-new-ros-package-in-your-catkin-workspace-following-these-instructions">Create a new ROS package in your catkin workspace following these instructions.</h3>
+<p>Create a new ROS package called airsim or whatever you like.</p>
+<p><a href="http://wiki.ros.org/ROS/Tutorials/CreatingPackage">Create ROS package</a></p>
+<p>If you don't already have a catkin workspace, you should first work through the ROS beginner tutorials.</p>
+<h3 id="add-airsim-ros-node-examples-to-ros-package">Add AirSim ROS node examples to ROS package</h3>
+<p>In the ROS package directory you made, copy the ros examples from the AirSim/PythonClient directory to your ROS package. Change the code below to match your AirSim and catkin workspace paths.</p>
+<pre><code># copy package
+mkdir -p ../catkin_ws/src/airsim/scripts/airsim
+cp AirSim/PythonClient/airsim/*.py ../catkin_ws/src/airsim/scripts/airsim
+
+# copy ROS examples
+cp AirSim/PythonClient/ros/*.py ../catkin_ws/src/airsim/scripts
 </code></pre>
+
+<h3 id="build-ros-airsim-package">Build ROS AirSim package</h3>
+<p>Change directory to your top level catkin workspace folder i.e. <code>cd ~/catkin_ws</code>  and run <code>catkin_make</code>
+This will build the airsim package.  Next, run <code>source devel/setup.bash</code> so ROS can find the new package.
+You can add this command to your ~/.bashrc to load your catkin workspace automatically.</p>
+<h2 id="how-to-run-ros-airsim-nodes">How to run ROS AirSim nodes</h2>
+<p>First make sure UE4 is running an airsim project, the car or drone should be selected, and the simulations is playing.
+Examples support car or drone.  Make sure to have the correct vehicle for the ros example running. </p>
+<p>The example airsim nodes can be run using <code>rosrun airsim example_name.py</code> The output of the node 
+can be viewed in another terminal by running <code>rostopic echo /example_name</code>  You can view a list of the
+topics currently published via tab completion after typing <code>rostopic echo</code> in the terminal.
+Rviz is a useful visualization tool that can display the published data. </p>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>In the case of <code>rosrun airsim example_name.py</code> returning <code>Couldn't find executable named...</code> you may <code>chmod +x example_name.py</code> to tell the system that this is executable.</p>
+<h1 id="c-coming-soon">C++ (coming soon)</h1>
               
             </div>
           </div>
@@ -251,10 +277,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../build_windows/" class="btn btn-neutral float-right" title="在Windows上构建">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../playback/" class="btn btn-neutral float-right" title="Playing Logs">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="主页"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../lidar/" class="btn btn-neutral" title="LIDAR"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -282,10 +308,10 @@
           <a href="https://github.com/FrendoWu/AirSim-docs-zh/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../lidar/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../build_windows/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../playback/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

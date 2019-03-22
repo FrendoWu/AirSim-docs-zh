@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>下载二进制文件 - AirSim中文文档</title>
+  <title>XBox Controller - AirSim中文文档</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u4e0b\u8f7d\u4e8c\u8fdb\u5236\u6587\u4ef6";
-    var mkdocs_page_input_path = "use_precompiled.md";
+    var mkdocs_page_name = "XBox Controller";
+    var mkdocs_page_input_path = "xbox_controller.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -57,27 +57,9 @@
 		
     <span class="caption-text">搭建AirSim</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">下载二进制文件</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#download-binaries">Download Binaries</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#unreal-engine">Unreal Engine</a></li>
-        
-            <li><a class="toctree-l4" href="#unity-experimental">Unity (Experimental)</a></li>
-        
-            <li><a class="toctree-l4" href="#controlling-vehicles">Controlling Vehicles</a></li>
-        
-            <li><a class="toctree-l4" href="#dont-have-good-gpu">Don't Have Good GPU?</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../use_precompiled/">下载二进制文件</a>
                 </li>
                 <li class="">
                     
@@ -130,9 +112,21 @@
                     
     <a class="" href="../remote_control/">Remote Control</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../xbox_controller/">XBox Controller</a>
+    <a class="current" href="./">XBox Controller</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#xbox-controller">XBox Controller</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#advanced">Advanced</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -214,14 +208,14 @@
     
       
         
-          <li>搭建AirSim &raquo;</li>
+          <li>Using AirSim &raquo;</li>
         
       
     
-    <li>下载二进制文件</li>
+    <li>XBox Controller</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/FrendoWu/AirSim-docs-zh/edit/master/docs/use_precompiled.md"
+        <a href="https://github.com/FrendoWu/AirSim-docs-zh/edit/master/docs/xbox_controller.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -231,19 +225,52 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="download-binaries">Download Binaries</h1>
-<p>You can simply download precompiled binaries and run to get started immediately. If you want to set up your own Unreal environment then please see <a href="https://github.com/Microsoft/AirSim/#how-to-get-it">these instructions</a>.</p>
-<h3 id="unreal-engine">Unreal Engine</h3>
-<p><strong>Windows</strong>: Download the binaries for the environment of your choice from the <a href="https://github.com/Microsoft/AirSim/releases">latest release</a>.</p>
-<p><strong>Linux</strong>: Binaries for Ubuntu 16.04 LTS is coming soon. For now you will need to <a href="../build_linux/">build it on Linux</a> yourself.</p>
-<h3 id="unity-experimental">Unity (Experimental)</h3>
-<p>A free environment called Windridge City is available at <a href="https://assetstore.unity.com/">Unity Asset Store</a> as an experimental release of AirSim on Unity. Please note that this is work in progress and all features may not work yet.</p>
-<h2 id="controlling-vehicles">Controlling Vehicles</h2>
-<p>Most of our users typically use <a href="../apis/">APIs</a> to control the vehicles. However if you can also control vehicles manually. You can drive the car using keyboard, gamepad or <a href="../steering_wheel_installation/">steering wheel</a>. To fly drone manually, you will need either XBox controller or a remote control (feel free to <a href="../CONTRIBUTING.md">contribute</a> keyboard support). Please see <a href="../remote_control/">remote control setup</a> for more details. Alternatively you can use <a href="../apis/">APIs</a> for programmatic control or use so-called <a href="../image_apis/">Computer Vision mode</a> to move around in environment using the keyboard.</p>
-<h2 id="dont-have-good-gpu">Don't Have Good GPU?</h2>
-<p>The AirSim binaries, like CityEnviron, requires a beefy GPU to run smoothly. You can run them in low resolution mode by editing the <code>run.bat</code> file on Windows like this:</p>
-<pre><code>start CityEnviron -ResX=640 -ResY=480 -windowed
+                <h1 id="xbox-controller">XBox Controller</h1>
+<p>To use an XBox controller with AirSim follow these steps:</p>
+<ol>
+<li>Connect XBox controller so it shows up in your PC Game Controllers:</li>
+</ol>
+<p><img alt="Gamecontrollers" src="../images/game_controllers.png" /></p>
+<ol>
+<li>Launch QGroundControl and you should see a new Joystick tab under stettings:</li>
+</ol>
+<p><img alt="Gamecontrollers" src="../images/qgc_joystick.png" /></p>
+<p>Now calibrate the radio, and setup some handy button actions.  For example, I set mine so that 
+the 'A' button arms the drone, 'B' put it in manual flight mode, 'X' puts it in altitude hold mode
+and 'Y' puts it in position hold mode.  I also prefer the feel of the controller when I check the
+box labelled "Use exponential curve on roll,pitch, yaw" because this gives me more sensitivity for
+small movements.]</p>
+<p>QGroundControl will find your Pixhawk via the UDP proxy port 14550 setup by MavLinkTest above.
+AirSim will find your Pixhawk via the other UDP server port 14570 also setup by MavLinkTest above.
+You can also use all the QGroundControl controls for autonomous flying at this point too.</p>
+<ol>
+<li>Connect to Pixhawk serial port using MavLinkTest.exe like this:</li>
+</ol>
+<pre><code>MavLinkTest.exe -serial:*,115200 -proxy:127.0.0.1:14550 -server:127.0.0.1:14570
 </code></pre>
+
+<ol>
+<li>Run AirSim Unreal simulator with these <code>~/Documents/AirSim/settings.json</code> settings:</li>
+</ol>
+<pre><code>&quot;Vehicles&quot;: {
+    &quot;PX4&quot;: {
+        &quot;VehicleType&quot;: &quot;PX4Multirotor&quot;,
+
+        &quot;SitlIp&quot;: &quot;&quot;,
+        &quot;SitlPort&quot;: 14560,
+        &quot;UdpIp&quot;: &quot;127.0.0.1&quot;,
+        &quot;UdpPort&quot;: 14570,
+        &quot;UseSerial&quot;: false
+    }
+}
+</code></pre>
+
+<h2 id="advanced">Advanced</h2>
+<p>If the Joystick tab doesn't show up in QGroundControl then Click on the purple "Q" icon on left in tool bar to reveal the Preferences panel.
+Go to General tab and check the Virtual Joystick checkbox.  Go back to settings screen (gears icon), click on Parameters tab,
+type <code>COM_RC_IN_MODE</code> in search box and change its value to either <code>Joystick/No RC Checks</code> or <code>Virtual RC by Joystick</code>.</p>
+<h3 id="other-options">Other Options</h3>
+<p>See <a href="../remote_control/">remote controller options</a></p>
               
             </div>
           </div>
@@ -251,10 +278,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../build_windows/" class="btn btn-neutral float-right" title="在Windows上构建">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../steering_wheel_installation/" class="btn btn-neutral float-right" title="Steering Wheel">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="主页"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../remote_control/" class="btn btn-neutral" title="Remote Control"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -282,10 +309,10 @@
           <a href="https://github.com/FrendoWu/AirSim-docs-zh/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../remote_control/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../build_windows/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../steering_wheel_installation/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

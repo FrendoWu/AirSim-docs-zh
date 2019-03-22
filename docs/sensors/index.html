@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>下载二进制文件 - AirSim中文文档</title>
+  <title>Sensors - AirSim中文文档</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u4e0b\u8f7d\u4e8c\u8fdb\u5236\u6587\u4ef6";
-    var mkdocs_page_input_path = "use_precompiled.md";
+    var mkdocs_page_name = "Sensors";
+    var mkdocs_page_input_path = "sensors.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -57,27 +57,9 @@
 		
     <span class="caption-text">搭建AirSim</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">下载二进制文件</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#download-binaries">Download Binaries</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#unreal-engine">Unreal Engine</a></li>
-        
-            <li><a class="toctree-l4" href="#unity-experimental">Unity (Experimental)</a></li>
-        
-            <li><a class="toctree-l4" href="#controlling-vehicles">Controlling Vehicles</a></li>
-        
-            <li><a class="toctree-l4" href="#dont-have-good-gpu">Don't Have Good GPU?</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../use_precompiled/">下载二进制文件</a>
                 </li>
                 <li class="">
                     
@@ -142,9 +124,29 @@
                     
     <a class="" href="../multi_vehicle/">Multiple Vehicles</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../sensors/">Sensors</a>
+    <a class="current" href="./">Sensors</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#sensors-in-airsim">Sensors in AirSim</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#default-sensors">Default sensors</a></li>
+        
+            <li><a class="toctree-l4" href="#configuration-of-default-sensor-list">Configuration of Default Sensor list</a></li>
+        
+            <li><a class="toctree-l4" href="#configuration-of-vehicle-specific-sensor-settings">Configuration of vehicle specific sensor settings</a></li>
+        
+            <li><a class="toctree-l4" href="#configuration-of-sensor-settings">Configuration of sensor settings</a></li>
+        
+            <li><a class="toctree-l4" href="#sensor-apis">Sensor APIs</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -214,14 +216,14 @@
     
       
         
-          <li>搭建AirSim &raquo;</li>
+          <li>Using AirSim &raquo;</li>
         
       
     
-    <li>下载二进制文件</li>
+    <li>Sensors</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/FrendoWu/AirSim-docs-zh/edit/master/docs/use_precompiled.md"
+        <a href="https://github.com/FrendoWu/AirSim-docs-zh/edit/master/docs/sensors.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -231,19 +233,117 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="download-binaries">Download Binaries</h1>
-<p>You can simply download precompiled binaries and run to get started immediately. If you want to set up your own Unreal environment then please see <a href="https://github.com/Microsoft/AirSim/#how-to-get-it">these instructions</a>.</p>
-<h3 id="unreal-engine">Unreal Engine</h3>
-<p><strong>Windows</strong>: Download the binaries for the environment of your choice from the <a href="https://github.com/Microsoft/AirSim/releases">latest release</a>.</p>
-<p><strong>Linux</strong>: Binaries for Ubuntu 16.04 LTS is coming soon. For now you will need to <a href="../build_linux/">build it on Linux</a> yourself.</p>
-<h3 id="unity-experimental">Unity (Experimental)</h3>
-<p>A free environment called Windridge City is available at <a href="https://assetstore.unity.com/">Unity Asset Store</a> as an experimental release of AirSim on Unity. Please note that this is work in progress and all features may not work yet.</p>
-<h2 id="controlling-vehicles">Controlling Vehicles</h2>
-<p>Most of our users typically use <a href="../apis/">APIs</a> to control the vehicles. However if you can also control vehicles manually. You can drive the car using keyboard, gamepad or <a href="../steering_wheel_installation/">steering wheel</a>. To fly drone manually, you will need either XBox controller or a remote control (feel free to <a href="../CONTRIBUTING.md">contribute</a> keyboard support). Please see <a href="../remote_control/">remote control setup</a> for more details. Alternatively you can use <a href="../apis/">APIs</a> for programmatic control or use so-called <a href="../image_apis/">Computer Vision mode</a> to move around in environment using the keyboard.</p>
-<h2 id="dont-have-good-gpu">Don't Have Good GPU?</h2>
-<p>The AirSim binaries, like CityEnviron, requires a beefy GPU to run smoothly. You can run them in low resolution mode by editing the <code>run.bat</code> file on Windows like this:</p>
-<pre><code>start CityEnviron -ResX=640 -ResY=480 -windowed
+                <h1 id="sensors-in-airsim">Sensors in AirSim</h1>
+<p>AirSim currently supports the following sensors:
+<em> Camera
+</em> Imu
+<em> Magnetometer
+</em> Gps
+<em> Barometer
+</em> Distance
+* Lidar</p>
+<p>The cameras are currently configured a bit differently than other sensors. The camera configuration and apis are covered in other documents, e.g., <a href="../settings/">general settings</a> and <a href="../image_apis/">image API</a>.</p>
+<p>This document focuses on the configuration of other sensors.</p>
+<h2 id="default-sensors">Default sensors</h2>
+<p>If not sensors are specified in the settings json, the the following sensors are enabled by default based on the simmode.</p>
+<h3 id="multirotor">Multirotor</h3>
+<ul>
+<li>Imu</li>
+<li>Magnetometer</li>
+<li>Gps</li>
+<li>Barometer</li>
+</ul>
+<h3 id="car">Car</h3>
+<ul>
+<li>Gps</li>
+</ul>
+<h3 id="computervision">ComputerVision</h3>
+<ul>
+<li>None</li>
+</ul>
+<p>Please see 'createDefaultSensorSettings' method in <a href="https://github.com/Microsoft/AirSim/tree/master/AirLib//include/common/">AirSimSettings.hpp</a> </p>
+<h2 id="configuration-of-default-sensor-list">Configuration of Default Sensor list</h2>
+<p>A default sensor list can be configured in settings json.
+e.g.,</p>
+<pre><code>    &quot;DefaultSensors&quot;: {
+        &quot;Barometer&quot;: {
+             &quot;SensorType&quot;: 1,
+             &quot;Enabled&quot; : true
+        },
+        &quot;Gps&quot;: {
+             &quot;SensorType&quot;: 1,
+             &quot;Enabled&quot; : true
+        },
+        &quot;Lidar1&quot;: { 
+             &quot;SensorType&quot;: 6,
+             &quot;Enabled&quot; : true,
+             &quot;NumberOfChannels&quot;: 16,
+             &quot;PointsPerSecond&quot;: 10000
+        },
+        &quot;Lidar2&quot;: { 
+             &quot;SensorType&quot;: 6,
+             &quot;Enabled&quot; : false,
+             &quot;NumberOfChannels&quot;: 4,
+             &quot;PointsPerSecond&quot;: 10000
+        }
+    },
 </code></pre>
+
+<h2 id="configuration-of-vehicle-specific-sensor-settings">Configuration of vehicle specific sensor settings</h2>
+<p>A vehicle specific sensor list can be specified in the vehicle settings part of the json.
+e.g.,</p>
+<pre><code>    &quot;Vehicles&quot;: {
+
+        &quot;Drone1&quot;: {
+            &quot;VehicleType&quot;: &quot;simpleflight&quot;,
+            &quot;AutoCreate&quot;: true,
+            ...
+            &quot;Sensors&quot;: {
+                &quot;MyLidar1&quot;: { 
+                    &quot;SensorType&quot;: 6,
+                    &quot;Enabled&quot; : true,
+                    &quot;NumberOfChannels&quot;: 16,
+                    &quot;PointsPerSecond&quot;: 10000,
+                    &quot;X&quot;: 0, &quot;Y&quot;: 0, &quot;Z&quot;: -1,
+                    &quot;DrawDebugPoints&quot;: true
+                },
+                &quot;MyLidar2&quot;: { 
+                    &quot;SensorType&quot;: 6,
+                    &quot;Enabled&quot; : true,
+                    &quot;NumberOfChannels&quot;: 4,
+                    &quot;PointsPerSecond&quot;: 10000,
+                    &quot;X&quot;: 0, &quot;Y&quot;: 0, &quot;Z&quot;: -1,
+                    &quot;DrawDebugPoints&quot;: true
+                }
+            }
+        }
+   }
+</code></pre>
+
+<p>If a vehicle provides its sensor list, it must provide the whole list. Selective add/remove/update of the default sensor list is NOT supported.</p>
+<h2 id="configuration-of-sensor-settings">Configuration of sensor settings</h2>
+<h3 id="shared-settings">Shared settings</h3>
+<p>There are two shared settings:
+* SensorType
+        An integer representing the sensor-type <a href="https://github.com/Microsoft/AirSim/tree/master/AirLib//include/sensors/">SensorBase.hpp</a></p>
+<pre><code>        enum class SensorType : uint {
+            Barometer = 1,
+            Imu = 2,
+            Gps = 3,
+            Magnetometer = 4,
+            Distance = 5,
+            Lidar = 6
+        };
+</code></pre>
+
+<ul>
+<li>Enabled
+    Boolean</li>
+</ul>
+<h3 id="sensor-specific-settings">Sensor specific settings</h3>
+<p>Each sensor-type has its own set of settings as well. Please see <a href="../lidar/">lidar</a> for example of Lidar specific settings.</p>
+<h2 id="sensor-apis">Sensor APIs</h2>
+<p>Each sensor-type has its own set of APIs currently. Please see <a href="../lidar/">lidar</a> for example of Lidar specific APIs.</p>
               
             </div>
           </div>
@@ -251,10 +351,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../build_windows/" class="btn btn-neutral float-right" title="在Windows上构建">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../lidar/" class="btn btn-neutral float-right" title="LIDAR">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="主页"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../multi_vehicle/" class="btn btn-neutral" title="Multiple Vehicles"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -282,10 +382,10 @@
           <a href="https://github.com/FrendoWu/AirSim-docs-zh/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../multi_vehicle/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../build_windows/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../lidar/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

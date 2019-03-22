@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>下载二进制文件 - AirSim中文文档</title>
+  <title>Camera Views - AirSim中文文档</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u4e0b\u8f7d\u4e8c\u8fdb\u5236\u6587\u4ef6";
-    var mkdocs_page_input_path = "use_precompiled.md";
+    var mkdocs_page_name = "Camera Views";
+    var mkdocs_page_input_path = "camera_views.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -57,27 +57,9 @@
 		
     <span class="caption-text">搭建AirSim</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">下载二进制文件</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#download-binaries">Download Binaries</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#unreal-engine">Unreal Engine</a></li>
-        
-            <li><a class="toctree-l4" href="#unity-experimental">Unity (Experimental)</a></li>
-        
-            <li><a class="toctree-l4" href="#controlling-vehicles">Controlling Vehicles</a></li>
-        
-            <li><a class="toctree-l4" href="#dont-have-good-gpu">Don't Have Good GPU?</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../use_precompiled/">下载二进制文件</a>
                 </li>
                 <li class="">
                     
@@ -118,9 +100,25 @@
                     
     <a class="" href="../settings/">Settings</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../camera_views/">Camera Views</a>
+    <a class="current" href="./">Camera Views</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#camera-views">Camera Views</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#turning-onoff-views">Turning ON/OFF Views</a></li>
+        
+            <li><a class="toctree-l4" href="#configuring-sub-windows">Configuring Sub-Windows</a></li>
+        
+            <li><a class="toctree-l4" href="#performance-impact">Performance Impact</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -214,14 +212,14 @@
     
       
         
-          <li>搭建AirSim &raquo;</li>
+          <li>Using AirSim &raquo;</li>
         
       
     
-    <li>下载二进制文件</li>
+    <li>Camera Views</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/FrendoWu/AirSim-docs-zh/edit/master/docs/use_precompiled.md"
+        <a href="https://github.com/FrendoWu/AirSim-docs-zh/edit/master/docs/camera_views.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -231,19 +229,35 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="download-binaries">Download Binaries</h1>
-<p>You can simply download precompiled binaries and run to get started immediately. If you want to set up your own Unreal environment then please see <a href="https://github.com/Microsoft/AirSim/#how-to-get-it">these instructions</a>.</p>
-<h3 id="unreal-engine">Unreal Engine</h3>
-<p><strong>Windows</strong>: Download the binaries for the environment of your choice from the <a href="https://github.com/Microsoft/AirSim/releases">latest release</a>.</p>
-<p><strong>Linux</strong>: Binaries for Ubuntu 16.04 LTS is coming soon. For now you will need to <a href="../build_linux/">build it on Linux</a> yourself.</p>
-<h3 id="unity-experimental">Unity (Experimental)</h3>
-<p>A free environment called Windridge City is available at <a href="https://assetstore.unity.com/">Unity Asset Store</a> as an experimental release of AirSim on Unity. Please note that this is work in progress and all features may not work yet.</p>
-<h2 id="controlling-vehicles">Controlling Vehicles</h2>
-<p>Most of our users typically use <a href="../apis/">APIs</a> to control the vehicles. However if you can also control vehicles manually. You can drive the car using keyboard, gamepad or <a href="../steering_wheel_installation/">steering wheel</a>. To fly drone manually, you will need either XBox controller or a remote control (feel free to <a href="../CONTRIBUTING.md">contribute</a> keyboard support). Please see <a href="../remote_control/">remote control setup</a> for more details. Alternatively you can use <a href="../apis/">APIs</a> for programmatic control or use so-called <a href="../image_apis/">Computer Vision mode</a> to move around in environment using the keyboard.</p>
-<h2 id="dont-have-good-gpu">Don't Have Good GPU?</h2>
-<p>The AirSim binaries, like CityEnviron, requires a beefy GPU to run smoothly. You can run them in low resolution mode by editing the <code>run.bat</code> file on Windows like this:</p>
-<pre><code>start CityEnviron -ResX=640 -ResY=480 -windowed
+                <h1 id="camera-views">Camera Views</h1>
+<p>The camera views that are shown on screen are the camera views you can fetch via the <a href="../image_apis/">simGetImages API</a>.</p>
+<p><img alt="Cameras" src="../images/cameras.png" /></p>
+<p>From left to right is the depth view, segmentation view and the FPV view. See <a href="../image_apis/">Image APIs</a> for description of various available views.</p>
+<h2 id="turning-onoff-views">Turning ON/OFF Views</h2>
+<p>Press F1 key to see keyboard shortcuts for turning on/off any or all views. You can also select various view modes there, such as "Fly with Me" mode, FPV mode and "Ground View" mode.</p>
+<h2 id="configuring-sub-windows">Configuring Sub-Windows</h2>
+<p>Now you can select what is shown by each of above sub windows. For instance, you can chose to show surface normals in first window (instead of depth) and disparity in second window (instead of segmentation). Below is the settings value you can use in <a href="../settings/">settings.json</a>:</p>
+<pre><code>{
+  &quot;SubWindows&quot;: [
+    {&quot;Index&quot;: 1, &quot;ImageType&quot;: 5},
+    {&quot;Index&quot;: 2, &quot;ImageType&quot;: 3}
+  ]
+}
 </code></pre>
+
+<h2 id="performance-impact">Performance Impact</h2>
+<p><em>Note</em>: This section is outdated and has not been updated for new performance enhancement changes.</p>
+<p>Now rendering these views does impact the FPS performance of the game, since this is additional work for the GPU.  The following shows the impact on FPS when you open these views.</p>
+<p><img alt="fps" src="../images/fps_views.png" /></p>
+<p>This is measured on Intel core i7 computer with 32 gb RAM and a GeForce GTX 1080
+graphics card running the Modular Neighborhood map, using cooked debug bits, no debugger or GameEditor open.  The normal state with no subviews open is measuring around 16 ms per frame, which means it is keeping a nice steady 60 FPS (which is the target FPS).  As it climbs up to 35ms the FPS drops to around 28 frames per second, spiking to 40ms means a few drops to 25 fps.</p>
+<p>The simulator can still function and fly correctly when all this is going on even in the worse case because the physics is decoupled from the rendering.  However if the delay gets too high such that the communication with PX4 hardware is interrupted due to overly busy CPU then the flight can stall due to timeout in the offboard control messages.</p>
+<p>On the computer where this was measured the drone could fly the path.py program
+without any problems with all views open, and with 3 python scripts running 
+to capture each view type.  But there was one stall during this flight, but it
+recovered gracefully and completed the path.  So it was right on the limit.</p>
+<p>The following shows the impact on CPU, perhaps a bit surprisingly, the CPU impact is also non trivial.</p>
+<p><img alt="fps" src="../images/cpu_views.png" /></p>
               
             </div>
           </div>
@@ -251,10 +265,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../build_windows/" class="btn btn-neutral float-right" title="在Windows上构建">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../using_car/" class="btn btn-neutral float-right" title="Using Car">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="主页"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../settings/" class="btn btn-neutral" title="Settings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -282,10 +296,10 @@
           <a href="https://github.com/FrendoWu/AirSim-docs-zh/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../settings/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../build_windows/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../using_car/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

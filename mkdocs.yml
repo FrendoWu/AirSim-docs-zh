@@ -1,0 +1,12 @@
+site_name: AirSim中文文档
+repo_url: https://github.com/FrendoWu/AirSim-docs-zh
+docs_dir: documents
+site_dir: docs
+theme: readthedocs
+extra:
+  version: 1.2.1
+nav:
+    - "主页": 'README.md'
+    - "搭建AirSim":
+      - "下载二进制文件": 'use_precompiled.md'
+      - "在Windows上构建": 'build_windows.md'

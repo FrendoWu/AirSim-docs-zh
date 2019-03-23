@@ -4,7 +4,7 @@ AirSim是一个基于虚幻引擎（我们还有一个支持Unity的试验性版
 
 我们的目标是将AirSim发展成一个可以实验自动驾驶汽车的深度学习，计算机视觉和强化学习算法的人工智能研究平台。 为此，AirSim还公开了API，用以以独立于平台的方式检索数据和控制车辆。
 
-**查看一分三十秒的快速演示**
+**查看一分三十秒的快速演示（Youtube）**
 
 AirSim中运行无人机
 
@@ -16,8 +16,8 @@ AirSim中运行汽车
 
 ## 最近更新
 
-* 添加了天气环境和相关的 [APIs](https://microsoft.github.io/AirSim/docs/apis#weather-apis)
-* Added [Time of Day API](https://microsoft.github.io/AirSim/docs/apis#time-of-day-api)
+* 添加了天气环境和相关的 [APIs](https://frendowu.github.io/AirSim-docs-zh/apis/#天气APIs)
+* 添加了 [时刻API](https://frendowu.github.io/AirSim-docs-zh/apis/#时刻API)
 * An experimental integration of [AirSim on Unity](https://github.com/Microsoft/AirSim/tree/master/Unity) is now available. Learn more in [Unity blog post](https://blogs.unity3d.com/2018/11/14/airsim-on-unity-experiment-with-autonomous-vehicle-simulation).
 * [New environments](https://github.com/Microsoft/AirSim/releases/tag/v1.2.1): Forest, Plains (windmill farm), TalkingHeads (human head simulation), TrapCam (animal detection via camera)
 * Highly efficient [NoDisplay view mode](https://microsoft.github.io/AirSim/docs/settings#viewmode) to turn off main screen rendering so you can capture images at high rate

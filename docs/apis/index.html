@@ -533,7 +533,7 @@ for response in responses:
 <p>AirSim allows to pause and continue the simulation through <code>pause(is_paused)</code> API. To pause the simulation call <code>pause(True)</code> and to continue the simulation call <code>pause(False)</code>. You may have scenario, especially while using reinforcement learning, to run the simulation for specified amount of time and then automatically pause. While simulation is paused, you may then do some expensive computation, send a new command and then again run the simulation for specified amount of time. This can be achieved by API <code>continueForTime(seconds)</code>. This API runs the simulation for the specified number of seconds and then pauses the simulation. For example usage, please see <a href="https://github.com/Microsoft/AirSim/tree/master/PythonClient//car/pause_continue_car.py">pause_continue_car.py</a> and <a href="https://github.com/Microsoft/AirSim/tree/master/PythonClient//multirotor/pause_continue_drone.py">pause_continue_drone.py</a>.</p>
 <h3 id="collision-api">Collision API</h3>
 <p>The collision information can be obtained using <code>simGetCollisionInfo</code> API. This call returns a struct that has information not only whether collision occurred but also collision position, surface normal, penetration depth and so on.</p>
-<h3 id="time-of-day-api">Time of Day API</h3>
+<h3 id="api">时刻API</h3>
 <p>AirSim assumes there exist sky sphere of class <code>EngineSky/BP_Sky_Sphere</code> in your environment with <a href="https://github.com/Microsoft/AirSim/blob/master/Unreal/Plugins/AirSim/Source/SimMode/SimModeBase.cpp#L156">ADirectionalLight actor</a>. By default, the position of the sun in the scene doesn't move with time. You can use <a href="../settings/#timeofday">settings</a> to set up latitude, longitude, date and time which AirSim uses to compute the position of sun in the scene. </p>
 <p>You can also use following API call to set the sun position according to given date time:</p>
 <pre><code>simSetTimeOfDay(self, is_enabled, start_datetime = &quot;&quot;, is_start_datetime_dst = False, celestial_clock_speed = 1, update_interval_secs = 60, move_sun = True)
@@ -541,7 +541,7 @@ for response in responses:
 
 <p>The <code>is_enabled</code> parameter must be <code>True</code> to enable time of day effect. If it is <code>False</code> then sun position is reset to its original in the environment.</p>
 <p>Other parameters are same as in <a href="../settings/#timeofday">settings</a>.</p>
-<h3 id="weather-apis">Weather APIs</h3>
+<h3 id="apis">天气APIs</h3>
 <p>By default all weather effects are disabled. To enable weather effect, first call:</p>
 <pre><code>simEnableWeather(True)
 </code></pre>

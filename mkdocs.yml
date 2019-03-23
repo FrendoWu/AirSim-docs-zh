@@ -33,20 +33,20 @@ nav:
       - "代码结构": 'code_structure.md'
       - "编码指引": 'coding_guidelines.md'
       - "飞行控制器": 'flight_controller.md'
-      - "Simple Flight": 'simple_flight.md'
+      - "简单的飞行": 'simple_flight.md'
       - "无人机之你好世界": 'hello_drone.md'
     - "MavLink和PX4":
       - "为AirSim配置PX4": 'px4_setup.md'
       - "PX4之软件在环": 'px4_sitl.md'
-      - "AirSim with Pixhawk": 'https://youtu.be/1oY8Qu5maQQ'
-      - "PX4 Setup with AirSim": 'https://youtu.be/HNWdYrtw3f0'
-      - "Debugging Attitude Estimation": 'https://www.youtube.com/watch?v=d_FyjKDWQfc&feature=youtu.be'
-      - "Intercepting MavLink Messages": 'https://github.com/Microsoft/AirSim/wiki/Intercepting-MavLink-messages'
-      - "Rapid Descent on PX4 Drones": 'https://github.com/Microsoft/AirSim/wiki/Rapid-Descent-on-PX4-drones'
-      - "Building PX4": "px4_build.md"
-      - "PX4/MavLink Logging": 'px4_logging.md'
-      - "MavLink LogViewer": "log_viewer.md"
-    - "Upgrading":
+      - "为Pixhawk加载AirSim": 'https://youtu.be/1oY8Qu5maQQ'
+      - "PX4上配置AirSim": 'https://youtu.be/HNWdYrtw3f0'
+      - "调试姿态估计": 'https://www.youtube.com/watch?v=d_FyjKDWQfc&feature=youtu.be'
+      - "拦截MavLink的消息": 'https://github.com/Microsoft/AirSim/wiki/Intercepting-MavLink-messages'
+      - "让无人机于PX4中快速下降": 'https://github.com/Microsoft/AirSim/wiki/Rapid-Descent-on-PX4-drones'
+      - "构建PX4": "px4_build.md"
+      - "PX4/MavLink日志": 'px4_logging.md'
+      - "查看MavLink日志": "log_viewer.md"
+    - "升级":
       - "更新虚幻引擎": 'unreal_upgrade.md'
       - "更新APIs": 'upgrade_apis.md'
       - "更新设置": 'upgrade_settings.md'
@@ -67,8 +67,8 @@ nav:
       - "设置虚幻环境": 'unreal_proj.md'
       - "Blocks环境": 'unreal_blocks.md'
       - "谁在使用AirSim": 'who_is_using.md'
-      - "Working with UE Plugin Contents": 'working_with_plugin_contents.md'
-      - "Formula Student Technion Self-drive": 'https://github.com/Microsoft/AirSim/wiki/technion'
+      - "使用UE插件内容": 'working_with_plugin_contents.md'
+      - "方程式赛车的自动驾驶": 'https://github.com/Microsoft/AirSim/wiki/technion'
     - "Support": 
       - "FAQ": 'faq.md'
       - "支持": 'SUPPORT.md'

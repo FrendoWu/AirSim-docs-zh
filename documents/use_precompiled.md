@@ -1,21 +1,25 @@
-# Download Binaries
+# 下载场景包
 
-You can simply download precompiled binaries and run to get started immediately. If you want to set up your own Unreal environment then please see [these instructions](https://github.com/Microsoft/AirSim/#how-to-get-it).
+您只需下载预编译好的场景文件，直接运行即可。 如果您想搭建自己的虚幻环境，请参阅 [该链接子目录"如何获得它"](https://frendowu.github.io/AirSim-docs-zh/)。
 
-### Unreal Engine
+### 虚幻引擎
 
-**Windows**: Download the binaries for the environment of your choice from the [latest release](https://github.com/Microsoft/AirSim/releases).
+**Windows**: 从 [latest release](https://github.com/Microsoft/AirSim/releases) 中下载您需要的场景。
 
-**Linux**: Binaries for Ubuntu 16.04 LTS is coming soon. For now you will need to [build it on Linux](build_linux.md) yourself.
+**Linux**: 尚未提供相关功能，但是您可以自行 [在linux上搭建](build_linux.md)。
 
-### Unity (Experimental)
-A free environment called Windridge City is available at [Unity Asset Store](https://assetstore.unity.com/) as an experimental release of AirSim on Unity. Please note that this is work in progress and all features may not work yet.
+### Unity引擎（试验性）
 
-## Controlling Vehicles
-Most of our users typically use [APIs](apis.md) to control the vehicles. However if you can also control vehicles manually. You can drive the car using keyboard, gamepad or [steering wheel](steering_wheel_installation.md). To fly drone manually, you will need either XBox controller or a remote control (feel free to [contribute](../CONTRIBUTING.md) keyboard support). Please see [remote control setup](remote_control.md) for more details. Alternatively you can use [APIs](apis.md) for programmatic control or use so-called [Computer Vision mode](image_apis.md) to move around in environment using the keyboard.
+在[Unity Asset Store](https://assetstore.unity.com/) 中一个叫做""的免费环境可以运行试验性的AirSim，因为尚未开发完成，故目前可能会存在些许问题。
 
-## Don't Have Good GPU?
-The AirSim binaries, like CityEnviron, requires a beefy GPU to run smoothly. You can run them in low resolution mode by editing the `run.bat` file on Windows like this:
+## 控制车辆
+
+大多数的使用者广泛使用 [APIs](apis.md) 来控制车辆。但是您也可以手动控制车辆，您可以用键盘、手柄或者[方向盘](steering_wheel_installation.md)来操控。如果您希望手动控制无人机，您需要使用XBox手柄或者一个遥控器（您也可以帮忙[完善](CONTRIBUTING.md)键盘控制模块）。更多细节请参阅[配置遥控器](remote_control.md)。同样的，您可以使用[APIs](apis.md)来实现程序控制，或者使用键盘搭配[计算机视觉模块](image_apis.md)在虚拟环境中漫游。
+
+## 没有一块强力的GPU？
+
+想要运行AirSim的场景文件如CityEnviron，您需要一块配置较高的GPU来流畅运行。您可以在通过修改Windows系统下的`run.bat`来实现低分辨率运行：
+
 ```
 start CityEnviron -ResX=640 -ResY=480 -windowed
 ```

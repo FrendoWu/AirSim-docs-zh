@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>下载二进制文件 - AirSim中文文档</title>
+  <title>下载场景文件 - AirSim中文文档</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u4e0b\u8f7d\u4e8c\u8fdb\u5236\u6587\u4ef6";
+    var mkdocs_page_name = "\u4e0b\u8f7d\u573a\u666f\u6587\u4ef6";
     var mkdocs_page_input_path = "use_precompiled.md";
     var mkdocs_page_url = null;
   </script>
@@ -59,20 +59,20 @@
     <ul class="subnav">
                 <li class=" current">
                     
-    <a class="current" href="./">下载二进制文件</a>
+    <a class="current" href="./">下载场景文件</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#download-binaries">Download Binaries</a></li>
+    <li class="toctree-l3"><a href="#_1">下载场景包</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#unreal-engine">Unreal Engine</a></li>
+            <li><a class="toctree-l4" href="#_2">虚幻引擎</a></li>
         
-            <li><a class="toctree-l4" href="#unity-experimental">Unity (Experimental)</a></li>
+            <li><a class="toctree-l4" href="#unity">Unity引擎（试验性）</a></li>
         
-            <li><a class="toctree-l4" href="#controlling-vehicles">Controlling Vehicles</a></li>
+            <li><a class="toctree-l4" href="#_3">控制车辆</a></li>
         
-            <li><a class="toctree-l4" href="#dont-have-good-gpu">Don't Have Good GPU?</a></li>
+            <li><a class="toctree-l4" href="#gpu">没有一块强力的GPU？</a></li>
         
         </ul>
     
@@ -389,7 +389,7 @@
         
       
     
-    <li>下载二进制文件</li>
+    <li>下载场景文件</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/FrendoWu/AirSim-docs-zh/edit/master/docs/use_precompiled.md"
@@ -402,17 +402,17 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="download-binaries">Download Binaries</h1>
-<p>You can simply download precompiled binaries and run to get started immediately. If you want to set up your own Unreal environment then please see <a href="https://github.com/Microsoft/AirSim/#how-to-get-it">these instructions</a>.</p>
-<h3 id="unreal-engine">Unreal Engine</h3>
-<p><strong>Windows</strong>: Download the binaries for the environment of your choice from the <a href="https://github.com/Microsoft/AirSim/releases">latest release</a>.</p>
-<p><strong>Linux</strong>: Binaries for Ubuntu 16.04 LTS is coming soon. For now you will need to <a href="../build_linux/">build it on Linux</a> yourself.</p>
-<h3 id="unity-experimental">Unity (Experimental)</h3>
-<p>A free environment called Windridge City is available at <a href="https://assetstore.unity.com/">Unity Asset Store</a> as an experimental release of AirSim on Unity. Please note that this is work in progress and all features may not work yet.</p>
-<h2 id="controlling-vehicles">Controlling Vehicles</h2>
-<p>Most of our users typically use <a href="../apis/">APIs</a> to control the vehicles. However if you can also control vehicles manually. You can drive the car using keyboard, gamepad or <a href="../steering_wheel_installation/">steering wheel</a>. To fly drone manually, you will need either XBox controller or a remote control (feel free to <a href="../CONTRIBUTING.md">contribute</a> keyboard support). Please see <a href="../remote_control/">remote control setup</a> for more details. Alternatively you can use <a href="../apis/">APIs</a> for programmatic control or use so-called <a href="../image_apis/">Computer Vision mode</a> to move around in environment using the keyboard.</p>
-<h2 id="dont-have-good-gpu">Don't Have Good GPU?</h2>
-<p>The AirSim binaries, like CityEnviron, requires a beefy GPU to run smoothly. You can run them in low resolution mode by editing the <code>run.bat</code> file on Windows like this:</p>
+                <h1 id="_1">下载场景包</h1>
+<p>您只需下载预编译好的场景文件，直接运行即可。 如果您想搭建自己的虚幻环境，请参阅 <a href="https://frendowu.github.io/AirSim-docs-zh/">该链接子目录"如何获得它"</a>。</p>
+<h3 id="_2">虚幻引擎</h3>
+<p><strong>Windows</strong>: 从 <a href="https://github.com/Microsoft/AirSim/releases">latest release</a> 中下载您需要的场景。</p>
+<p><strong>Linux</strong>: 尚未提供相关功能，但是您可以自行 <a href="../build_linux/">在linux上搭建</a>。</p>
+<h3 id="unity">Unity引擎（试验性）</h3>
+<p>在<a href="https://assetstore.unity.com/">Unity Asset Store</a> 中一个叫做""的免费环境可以运行试验性的AirSim，因为尚未开发完成，故目前可能会存在些许问题。</p>
+<h2 id="_3">控制车辆</h2>
+<p>大多数的使用者广泛使用 <a href="../apis/">APIs</a> 来控制车辆。但是您也可以手动控制车辆，您可以用键盘、手柄或者<a href="../steering_wheel_installation/">方向盘</a>来操控。如果您希望手动控制无人机，您需要使用XBox手柄或者一个遥控器（您也可以帮忙<a href="../CONTRIBUTING/">完善</a>键盘控制模块）。更多细节请参阅<a href="../remote_control/">配置遥控器</a>。同样的，您可以使用<a href="../apis/">APIs</a>来实现程序控制，或者使用键盘搭配<a href="../image_apis/">计算机视觉模块</a>在虚拟环境中漫游。</p>
+<h2 id="gpu">没有一块强力的GPU？</h2>
+<p>想要运行AirSim的场景文件如CityEnviron，您需要一块配置较高的GPU来流畅运行。您可以在通过修改Windows系统下的<code>run.bat</code>来实现低分辨率运行：</p>
 <pre><code>start CityEnviron -ResX=640 -ResY=480 -windowed
 </code></pre>
               

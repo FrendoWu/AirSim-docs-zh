@@ -8,7 +8,7 @@ extra:
 nav:
     - "主页": 'README.md'
     - "搭建AirSim":
-      - "下载二进制文件": 'use_precompiled.md'
+      - "下载场景文件": 'use_precompiled.md'
       - "在Windows上构建": 'build_windows.md'
       - "在Linux上构建": 'build_linux.md'
       - "创建自定义环境": 'unreal_custenv.md'

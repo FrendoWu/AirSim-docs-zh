@@ -1,23 +1,25 @@
-# Build AirSim on Windows
+# 在Windows上构建AirSim
 
-## Install Unreal Engine
+## 安装虚幻引擎
 
-1. [Download](https://www.unrealengine.com/download) the Epic Games Launcher. While the Unreal Engine is open source and free to download, registration is still required.
-2. Run the Epic Games Launcher, open the `Library` tab on the left pane.   
-Click on the `Add Versions` which should show the option to download **Unreal 4.18** as shown below. If you have multiple versions of Unreal installed then **make sure 4.18 is set to `current`** by clicking down arrow next to the Launch button for the version.
+1. [点此下载](https://www.unrealengine.com/download) Epic Games登录器，尽管虚幻引擎是开源且免费的，但是目前步骤仍然是需要下载Epic并注册。
 
-   **Note**: If you have UE 4.16 or older projects, please see the [upgrade guide](unreal_upgrade.md) to upgrade your projects.
+2. 运行Epic Games, 点击左侧的 `Library` 标签。   
+  点击 `+`号，选择下 **Unreal 4.18** 。如果您安装了多个版本的虚幻引擎，请通过点击Launch旁边的下三角形确保**4.18版本是`目前（current）`正在使用的版本**。
 
-## Build AirSim
-* Install Visual Studio 2017.    
-**Make sure** to select **VC++** and **Windows SDK 8.1** while installing VS 2017.   
-* Start `x64 Native Tools Command Prompt for VS 2017`. 
-* Clone the repo: `git clone https://github.com/Microsoft/AirSim.git`, and go the AirSim directory by `cd AirSim`. 
-* Run `build.cmd` from the command line. This will create ready to use plugin bits in the `Unreal\Plugins` folder that can be dropped into any Unreal project.
+   **注意**：如果您有基于UE4.16或者更老的版本的项目，请查阅 [升级指引](unreal_upgrade.md) 来升级您的项目。
 
-## Build Unreal Project
+## 构建AirSim的步骤
 
-Finally, you will need an Unreal project that hosts the environment for your vehicles. AirSim comes with a built-in "Blocks Environment" which you can use, or you can create your own. Please see [setting up Unreal Environment](unreal_proj.md).
+* 安装 Visual Studio 2017；
+  **请确保**安装时勾选了**VC++**以及**Windows SDK 8.1**选项。
+* 运行`x64 Native Tools Command Prompt for VS 2017`. 
+* 克隆代码仓库：`git clone https://github.com/Microsoft/AirSim.git`，然后进入到AirSim所在目录`cd AirSim`. 
+* 从命令行界面运行`build.cmd`。这会在目录 `Unreal\Plugins` 生成可以拖进任意虚幻引擎项目的即用插件文件。
+
+## Build虚幻引擎项目
+
+最终，您将会需要一个虚幻引擎项目并在其中试运行车辆/无人机。AirSim伊始便提供一个"Blcoks环境"，您可以自由构建您的项目，请参阅[设置虚幻环境](unreal_proj.md)。
 
 ## Setup Remote Control (Multirotor only)
 

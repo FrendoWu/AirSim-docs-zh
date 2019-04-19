@@ -17,9 +17,9 @@
 * 克隆代码仓库：`git clone https://github.com/Microsoft/AirSim.git`，然后进入到AirSim所在目录`cd AirSim`. 
 * 从命令行界面运行`build.cmd`。这会在目录 `Unreal\Plugins` 生成可以拖进任意虚幻引擎项目的即用插件文件。
 
-## Build虚幻引擎项目
+## Build Unreal Environment
 
-最终，您将会需要一个虚幻引擎项目并在其中试运行车辆/无人机。AirSim伊始便提供一个"Blcoks环境"，您可以自由构建您的项目，请参阅[设置虚幻环境](unreal_proj.md)。
+最终，您需要一个内有环境 (environment) 的项目 (project) 来运行AirSim。AirSim内置"Blocks Environment"，或者您也可以参考[设置虚幻环境](unreal_proj.md)来创建自己的项目。
 
 ## 配置遥控器控制功能（仅限无人机）
 
@@ -42,7 +42,8 @@
 [Unity](https://unity3d.com/) 是另一个非常优秀的游戏引擎，我们目前发布了一个 [试验性](https://github.com/Microsoft/AirSim/tree/master/Unity) 的版本，其尚未完善。
 
 # FAQ
-#### 我运行build.cmd时提示 `error C100 : An internal error has occurred in the compiler` 
+
+#### 运行build.cmd时提示 `error C100 : An internal error has occurred in the compiler`
 
 据我们观察这个错误一般出现在VS的版本为`15.9.0`时，并且已经在AirSim代码中进行了解决。如果您使用这个VS版本，请拉取最新的AirSim代码。 
 

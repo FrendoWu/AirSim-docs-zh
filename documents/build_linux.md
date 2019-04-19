@@ -1,55 +1,50 @@
-# Build AirSim on Linux
+# 在Linux上构建AirSim
 
-The current recommended and tested environment is **Ubuntu 16.04 LTS**. Theoretically, you can build on other distros and OSX as well, but we haven't tested it.
+目前验证并推荐的Linux版本为 **Ubuntu 16.04 LTS**。理论上您可以在其他版本或者OSX上构建，但是我们目前并未验证。
 
-## Install and Build
+## 安装以及Build
 
-It's super simple: 1-2-3!
-
-1. Make sure you are [registered with Epic Games](https://docs.unrealengine.com/latest/INT/Platforms/Linux/BeginnerLinuxDeveloper/SettingUpAnUnrealWorkflow/1/index.html). This is required to get source code access for Unreal Engine.
-2. Clone Unreal in your favorite folder and build it (this may take a while!). **Note**: We only support Unreal 4.18 at present.
+1. 确保您已 [注册了Epic Games](https://docs.unrealengine.com/latest/INT/Platforms/Linux/BeginnerLinuxDeveloper/SettingUpAnUnrealWorkflow/1/index.html)。这一步用以获取虚幻引擎的代码。
+2. 克隆虚幻引擎到您期望的目录，然后Build。注意：我们目前仅提供对UE4.18版本的支持。
    ```bash
-   # go to the folder where you clone GitHub projects
    git clone -b 4.18 https://github.com/EpicGames/UnrealEngine.git
    cd UnrealEngine
    ./Setup.sh
    ./GenerateProjectFiles.sh
    make
    ```
-3. Clone AirSim and build it:
+3. 克隆AirSim然后build:
    ```bash
-   # go to the folder where you clone GitHub projects
    git clone https://github.com/Microsoft/AirSim.git
    cd AirSim
    ./setup.sh
    ./build.sh
    ```
 
-
 ## Build Unreal Environment
 
-Finally, you will need an Unreal project that hosts the environment for your vehicles. AirSim comes with a built-in "Blocks Environment" which you can use, or you can create your own. Please see [setting up Unreal Environment](unreal_proj.md).
+最终，您需要一个内有环境 (environment) 的项目 (project) 来运行AirSim。AirSim内置"Blocks Environment"，或者您也可以参考[设置虚幻环境](unreal_proj.md)来创建自己的项目。
 
-## Setup Remote Control (Multirotor Only)
+## 配置遥控器控制功能（仅限无人机）
 
-A remote control is required if you want to fly manually. See the [remote control setup](remote_control.md) for more details.
+如果您想手动控制无人机，您需要一个遥控器。请查阅 [遥控器控制](remote_control.md) 获取更多细节。
 
-Alternatively, you can use [APIs](apis.md) for programmatic control or use the so-called [Computer Vision mode](image_apis.md) to move around using the keyboard.
+当然，您也可以通过 [APIs](apis.md) 编写程序来进行操控，或者在 [计算机视觉模式](image_apis.md) 下使用键盘来预览环境。
 
-## How to Use AirSim
+## 如何使用AirSim
 
-Once AirSim is set up by following above steps, you can,
+一旦您完成了上述步骤，您就可以
 
-1. Go to `UnrealEngine` folder and start Unreal by running `UnrealEngine/Engine/Binaries/Linux/UE4Editor`.
-2. When Unreal Engine prompts for opening or creating project, select Browse and choose `AirSim/Unreal/Environments/Blocks` (or your [custom](unreal_custenv.md) Unreal project).
-3. If you get prompts to convert project, look for More Options or Convert-In-Place option. If you get prompted to build, chose Yes. If you get prompted to disable AirSim plugin, choose No.
-4. After Unreal Editor loads, press Play button. Tip: go to 'Edit->Editor Preferences', in the 'Search' box type 'CPU' and ensure that the 'Use Less CPU when in Background' is unchecked.
+1. 进入 `UnrealEngine` 文件夹，然后运行 `UnrealEngine/Engine/Binaries/Linux/UE4Editor`。
+2. 当UE提示打开或创建项目时，选择浏览并选择  `AirSim/Unreal/Environments/Blocks` （或者您自己 [客制](unreal_custenv.md) 的项目）。
+3. If you get prompts to convert project, look for 当提示您需要转换（convert）项目时，找到并配置More选项或者Convert-In-Place选项。如果提示您build，选择yes，如果提示您禁用AirSim插件，选择no。
+4. 加载Unreal Editor后，单击“开始”按钮，小提示：进入“Edit->Editor Preferences“并搜索”CPU“，然后确保 'Use Less CPU when in Background' 未被勾选。
 
-See [Using APIs](apis.md) and [settings.json](settings.md) for various options available.
+参阅 [使用 APIs](apis.md) 以及 [settings.json](settings.md) 来开启或设置更多功能。
 
 ## FAQ
 
-#### I'm getting error "<MyProject> could not be compiled. Try rebuilding from source manually".
+#### 提示错误"<MyProject> could not be compiled. Try rebuilding from source manually"。
 
 This could either happen because of compile error or the fact that your gch files are outdated. Look in to your console window. Do you see something like below?
 ```

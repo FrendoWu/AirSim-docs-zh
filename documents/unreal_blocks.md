@@ -1,5 +1,4 @@
-
-# Setup Blocks Environment for AirSim
+# 配置Blocks环境
 
 Blocks environment is available in repo in folder `Unreal/Environments/Blocks` and is designed to be lightweight in size. That means its very basic but fast.
 
@@ -13,7 +12,8 @@ Here are quick steps to get Blocks environment up and running:
 4. Make sure `Blocks` project is the startup project, build configuration is set to `DebugGame_Editor` and `Win64`. Hit F5 to run.
 5. Press the Play button in Unreal Editor and you will see something like in below video. Also see [how to use AirSim](https://github.com/Microsoft/AirSim/#how-to-use-it).
 
-### Changing Code and Rebuilding
+### 修改代码以及重建（rebuild）
+
 For Windows, you can just change the code in Visual Studio, press F5 and re-run. There are few batch files available in folder `AirSim\Unreal\Environments\Blocks` that lets you sync code, clean etc.
 
 ## Linux
@@ -26,12 +26,15 @@ For Windows, you can just change the code in Visual Studio, press F5 and re-run.
 
 [![Blocks Demo Video](images/blocks_video.png)](https://www.youtube.com/watch?v=-r_QGaxMT4A)
 
-### Changing Code and Rebuilding
+### 修改代码以及重建（rebuild）
+
 For Linux, make code changes in AirLib or Unreal/Plugins folder and then run `./build.sh` to rebuild. This step also copies the build output to Blocks sample project. You can then follow above steps again to re-run.
 
-## Chosing Your Vehicle: Car or Multirotor
+## 选择模式：汽车或无人机
+
 By default AirSim spawns multirotor. You can easily change this to car and use all of AirSim goodies. Please see [using car](using_car.md) guide.
 
 ## FAQ
-#### I see warnings about like "_BuitData" file is missing. 
-These are intermediate files and you can safely ignore it.
+#### 提示诸如 "_BuitData" 的文件不存在。
+
+这些只是过渡文件，可以无视。

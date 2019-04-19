@@ -308,7 +308,7 @@
     <a class="current" href="./">Blocks环境</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#setup-blocks-environment-for-airsim">Setup Blocks Environment for AirSim</a></li>
+    <li class="toctree-l3"><a href="#blocks">配置Blocks环境</a></li>
     
         <ul>
         
@@ -316,7 +316,7 @@
         
             <li><a class="toctree-l4" href="#linux">Linux</a></li>
         
-            <li><a class="toctree-l4" href="#chosing-your-vehicle-car-or-multirotor">Chosing Your Vehicle: Car or Multirotor</a></li>
+            <li><a class="toctree-l4" href="#_1">选择模式：汽车或无人机</a></li>
         
             <li><a class="toctree-l4" href="#faq">FAQ</a></li>
         
@@ -402,7 +402,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="setup-blocks-environment-for-airsim">Setup Blocks Environment for AirSim</h1>
+                <h1 id="blocks">配置Blocks环境</h1>
 <p>Blocks environment is available in repo in folder <code>Unreal/Environments/Blocks</code> and is designed to be lightweight in size. That means its very basic but fast.</p>
 <p>Here are quick steps to get Blocks environment up and running:</p>
 <h2 id="windows">Windows</h2>
@@ -413,7 +413,7 @@
 <li>Make sure <code>Blocks</code> project is the startup project, build configuration is set to <code>DebugGame_Editor</code> and <code>Win64</code>. Hit F5 to run.</li>
 <li>Press the Play button in Unreal Editor and you will see something like in below video. Also see <a href="https://github.com/Microsoft/AirSim/#how-to-use-it">how to use AirSim</a>.</li>
 </ol>
-<h3 id="changing-code-and-rebuilding">Changing Code and Rebuilding</h3>
+<h3 id="rebuild">修改代码以及重建（rebuild）</h3>
 <p>For Windows, you can just change the code in Visual Studio, press F5 and re-run. There are few batch files available in folder <code>AirSim\Unreal\Environments\Blocks</code> that lets you sync code, clean etc.</p>
 <h2 id="linux">Linux</h2>
 <ol>
@@ -425,13 +425,13 @@
 <li>Press the Play button in Unreal Editor and you will see something like in below video. Also see <a href="/#how-to-use-it">how to use AirSim</a>.</li>
 </ol>
 <p><a href="https://www.youtube.com/watch?v=-r_QGaxMT4A"><img alt="Blocks Demo Video" src="../images/blocks_video.png" /></a></p>
-<h3 id="changing-code-and-rebuilding_1">Changing Code and Rebuilding</h3>
+<h3 id="rebuild_1">修改代码以及重建（rebuild）</h3>
 <p>For Linux, make code changes in AirLib or Unreal/Plugins folder and then run <code>./build.sh</code> to rebuild. This step also copies the build output to Blocks sample project. You can then follow above steps again to re-run.</p>
-<h2 id="chosing-your-vehicle-car-or-multirotor">Chosing Your Vehicle: Car or Multirotor</h2>
+<h2 id="_1">选择模式：汽车或无人机</h2>
 <p>By default AirSim spawns multirotor. You can easily change this to car and use all of AirSim goodies. Please see <a href="../using_car/">using car</a> guide.</p>
 <h2 id="faq">FAQ</h2>
-<h4 id="i-see-warnings-about-like-_buitdata-file-is-missing">I see warnings about like "_BuitData" file is missing.</h4>
-<p>These are intermediate files and you can safely ignore it.</p>
+<h4 id="_buitdata">提示诸如 "_BuitData" 的文件不存在。</h4>
+<p>这些只是过渡文件，可以无视。</p>
               
             </div>
           </div>

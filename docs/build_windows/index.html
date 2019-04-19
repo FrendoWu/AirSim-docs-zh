@@ -74,7 +74,7 @@
         
             <li><a class="toctree-l4" href="#airsim">构建AirSim的步骤</a></li>
         
-            <li><a class="toctree-l4" href="#build">Build虚幻引擎项目</a></li>
+            <li><a class="toctree-l4" href="#build-unreal-environment">Build Unreal Environment</a></li>
         
             <li><a class="toctree-l4" href="#_2">配置遥控器控制功能（仅限无人机）</a></li>
         
@@ -90,7 +90,7 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#buildcmd-error-c100-an-internal-error-has-occurred-in-the-compiler">我运行build.cmd时提示 error C100 : An internal error has occurred in the compiler</a></li>
+            <li><a class="toctree-l4" href="#buildcmd-error-c100-an-internal-error-has-occurred-in-the-compiler">运行build.cmd时提示 error C100 : An internal error has occurred in the compiler</a></li>
         
             <li><a class="toctree-l4" href="#corecrth-no-such-file-or-directory-or-windows-sdk-version-81-not-found">提示错误 "'corecrt.h': No such file or directory" or "Windows SDK version 8.1 not found"</a></li>
         
@@ -444,8 +444,8 @@
 <li>克隆代码仓库：<code>git clone https://github.com/Microsoft/AirSim.git</code>，然后进入到AirSim所在目录<code>cd AirSim</code>. </li>
 <li>从命令行界面运行<code>build.cmd</code>。这会在目录 <code>Unreal\Plugins</code> 生成可以拖进任意虚幻引擎项目的即用插件文件。</li>
 </ul>
-<h2 id="build">Build虚幻引擎项目</h2>
-<p>最终，您将会需要一个虚幻引擎项目并在其中试运行车辆/无人机。AirSim伊始便提供一个"Blcoks环境"，您可以自由构建您的项目，请参阅<a href="../unreal_proj/">设置虚幻环境</a>。</p>
+<h2 id="build-unreal-environment">Build Unreal Environment</h2>
+<p>最终，您需要一个内有环境 (environment) 的项目 (project) 来运行AirSim。AirSim内置"Blocks Environment"，或者您也可以参考<a href="../unreal_proj/">设置虚幻环境</a>来创建自己的项目。</p>
 <h2 id="_2">配置遥控器控制功能（仅限无人机）</h2>
 <p>如果您想手动控制无人机，您需要一个遥控器。请查阅 <a href="../remote_control/">遥控器控制</a> 获取更多细节。</p>
 <p>当然，您也可以通过 <a href="../apis/">APIs</a> 编写程序来进行操控，或者在 <a href="../image_apis/">计算机视觉模式</a> 下使用键盘来预览环境。</p>
@@ -460,7 +460,7 @@
 <h1 id="airsim-on-unity">AirSim on Unity (试验性)</h1>
 <p><a href="https://unity3d.com/">Unity</a> 是另一个非常优秀的游戏引擎，我们目前发布了一个 <a href="https://github.com/Microsoft/AirSim/tree/master/Unity">试验性</a> 的版本，其尚未完善。</p>
 <h1 id="faq">FAQ</h1>
-<h4 id="buildcmd-error-c100-an-internal-error-has-occurred-in-the-compiler">我运行build.cmd时提示 <code>error C100 : An internal error has occurred in the compiler</code></h4>
+<h4 id="buildcmd-error-c100-an-internal-error-has-occurred-in-the-compiler">运行build.cmd时提示 <code>error C100 : An internal error has occurred in the compiler</code></h4>
 <p>据我们观察这个错误一般出现在VS的版本为<code>15.9.0</code>时，并且已经在AirSim代码中进行了解决。如果您使用这个VS版本，请拉取最新的AirSim代码。 </p>
 <h4 id="corecrth-no-such-file-or-directory-or-windows-sdk-version-81-not-found">提示错误 "'corecrt.h': No such file or directory" or "Windows SDK version 8.1 not found"</h4>
 <p>应该是您安装Virsual Studio时未安装 <a href="https://developercommunity.visualstudio.com/content/problem/3754/cant-compile-c-program-because-of-sdk-81cant-add-a.html">Windows SDK</a>。</p>

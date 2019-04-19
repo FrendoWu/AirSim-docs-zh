@@ -1,4 +1,4 @@
-# XBox Controller
+# XBox控制器
 
 To use an XBox controller with AirSim follow these steps:
 

@@ -76,29 +76,29 @@
         
             <li><a class="toctree-l4" href="#build">Build虚幻引擎项目</a></li>
         
-            <li><a class="toctree-l4" href="#setup-remote-control-multirotor-only">Setup Remote Control (Multirotor only)</a></li>
+            <li><a class="toctree-l4" href="#_2">配置遥控器控制功能（仅限无人机）</a></li>
         
-            <li><a class="toctree-l4" href="#how-to-use-airsim">How to Use AirSim</a></li>
+            <li><a class="toctree-l4" href="#airsim_1">如何使用AirSim</a></li>
         
         </ul>
     
 
-    <li class="toctree-l3"><a href="#airsim-on-unity-experimental">AirSim on Unity (Experimental)</a></li>
+    <li class="toctree-l3"><a href="#airsim-on-unity">AirSim on Unity (试验性)</a></li>
     
 
     <li class="toctree-l3"><a href="#faq">FAQ</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#i-get-error-c100-an-internal-error-has-occurred-in-the-compiler-when-running-buildcmd">I get error C100 : An internal error has occurred in the compiler when running build.cmd</a></li>
+            <li><a class="toctree-l4" href="#buildcmd-error-c100-an-internal-error-has-occurred-in-the-compiler">我运行build.cmd时提示 error C100 : An internal error has occurred in the compiler</a></li>
         
-            <li><a class="toctree-l4" href="#i-get-error-corecrth-no-such-file-or-directory-or-windows-sdk-version-81-not-found">I get error "'corecrt.h': No such file or directory" or "Windows SDK version 8.1 not found"</a></li>
+            <li><a class="toctree-l4" href="#corecrth-no-such-file-or-directory-or-windows-sdk-version-81-not-found">提示错误 "'corecrt.h': No such file or directory" or "Windows SDK version 8.1 not found"</a></li>
         
-            <li><a class="toctree-l4" href="#how-do-i-use-px4-firmware-with-airsim">How do I use PX4 firmware with AirSim?</a></li>
+            <li><a class="toctree-l4" href="#airsimpx4">我应该怎么在AirSim中使用PX4固件？</a></li>
         
-            <li><a class="toctree-l4" href="#i-made-changes-in-visual-studio-but-there-is-no-effect">I made changes in Visual Studio but there is no effect</a></li>
+            <li><a class="toctree-l4" href="#visual-studio">我在Visual Studio中进行了更改但是无效果</a></li>
         
-            <li><a class="toctree-l4" href="#unreal-still-uses-vs2015-or-im-getting-some-link-error">Unreal still uses VS2015 or I'm getting some link error</a></li>
+            <li><a class="toctree-l4" href="#unrealvs2015link-error">Unreal使用电脑中的VS2015或者提示“link error”</a></li>
         
         </ul>
     
@@ -446,37 +446,41 @@
 </ul>
 <h2 id="build">Build虚幻引擎项目</h2>
 <p>最终，您将会需要一个虚幻引擎项目并在其中试运行车辆/无人机。AirSim伊始便提供一个"Blcoks环境"，您可以自由构建您的项目，请参阅<a href="../unreal_proj/">设置虚幻环境</a>。</p>
-<h2 id="setup-remote-control-multirotor-only">Setup Remote Control (Multirotor only)</h2>
-<p>A remote control is required if you want to fly manually. See the <a href="../remote_control/">remote control setup</a> for more details.</p>
-<p>Alternatively, you can use <a href="../apis/">APIs</a> for programmatic control or use the so-called <a href="../image_apis/">Computer Vision mode</a> to move around using the keyboard.</p>
-<h2 id="how-to-use-airsim">How to Use AirSim</h2>
-<p>Once AirSim is set up by following above steps, you can,</p>
+<h2 id="_2">配置遥控器控制功能（仅限无人机）</h2>
+<p>如果您想手动控制无人机，您需要一个遥控器。请查阅 <a href="../remote_control/">遥控器控制</a> 获取更多细节。</p>
+<p>当然，您也可以通过 <a href="../apis/">APIs</a> 编写程序来进行操控，或者在 <a href="../image_apis/">计算机视觉模式</a> 下使用键盘来预览环境。</p>
+<h2 id="airsim_1">如何使用AirSim</h2>
+<p>一旦您完成了上述步骤，您就可以</p>
 <ol>
-<li>Double click on .sln file to load the Blocks project in <code>Unreal\Environments\Blocks</code> (or .sln file in your own <a href="../unreal_custenv/">custom</a> Unreal project). If you don't see .sln file then you probably haven't completed steps in Build Unreal Project section above.</li>
-<li>Select your Unreal project as Start Up project (for example, Blocks project) and make sure Build config is set to "Develop Editor" and x64.</li>
-<li>After Unreal Editor loads, press Play button. Tip: go to 'Edit-&gt;Editor Preferences', in the 'Search' box type 'CPU' and ensure that the 'Use Less CPU when in Background' is unchecked.</li>
+<li>双击<code>Unreal\Environments\Blocks</code>目录下的 .sln 文件来加载Blocks project （或者您自己 <a href="../unreal_custenv/">客制</a> 的项目）。如果您未看见.sln文件，那可能是您未按照上述步骤执行。</li>
+<li>选择一个虚幻项目（project）进行开始（例如 Block project），并确保虚幻引擎的“Build”选项设置为“Develop Editor”（开发者编辑器）和x64模式。</li>
+<li>当虚幻编辑器加载后，单击“开始”按钮，小提示：进入“Edit-&gt;Editor Preferences“并搜索”CPU“，然后确保 'Use Less CPU when in Background' 未被勾选。</li>
 </ol>
-<p>See <a href="../apis/">Using APIs</a> and <a href="../settings/">settings.json</a> for various options available.</p>
-<h1 id="airsim-on-unity-experimental">AirSim on Unity (Experimental)</h1>
-<p><a href="https://unity3d.com/">Unity</a> is another great game engine platform and we have an <a href="https://github.com/Microsoft/AirSim/tree/master/Unity">experimental release</a> of AirSim on Unity. Please note that this is work in progress and all features may not work yet. </p>
+<p>参阅 <a href="../apis/">使用 APIs</a> 以及 <a href="../settings/">settings.json</a> 来开启或设置更多功能。</p>
+<h1 id="airsim-on-unity">AirSim on Unity (试验性)</h1>
+<p><a href="https://unity3d.com/">Unity</a> 是另一个非常优秀的游戏引擎，我们目前发布了一个 <a href="https://github.com/Microsoft/AirSim/tree/master/Unity">试验性</a> 的版本，其尚未完善。</p>
 <h1 id="faq">FAQ</h1>
-<h4 id="i-get-error-c100-an-internal-error-has-occurred-in-the-compiler-when-running-buildcmd">I get <code>error C100 : An internal error has occurred in the compiler</code> when running build.cmd</h4>
-<p>We have noticed this happening with VS version <code>15.9.0</code> and have checked-in a workaround in AirSim code. If you have this VS version, please make sure to pull the latest AirSim code.</p>
-<h4 id="i-get-error-corecrth-no-such-file-or-directory-or-windows-sdk-version-81-not-found">I get error "'corecrt.h': No such file or directory" or "Windows SDK version 8.1 not found"</h4>
-<p>Very likely you don't have <a href="https://developercommunity.visualstudio.com/content/problem/3754/cant-compile-c-program-because-of-sdk-81cant-add-a.html">Windows SDK</a> installed with Visual Studio. </p>
-<h4 id="how-do-i-use-px4-firmware-with-airsim">How do I use PX4 firmware with AirSim?</h4>
-<p>By default, AirSim uses its own built-in firmware called <a href="../simple_flight/">simple_flight</a>. There is no additional setup if you just want to go with it. If you want to switch to using PX4 instead then please see <a href="../px4_setup/">this guide</a>.</p>
-<h4 id="i-made-changes-in-visual-studio-but-there-is-no-effect">I made changes in Visual Studio but there is no effect</h4>
-<p>Sometimes the Unreal + VS build system doesn't recompile if you make changes to only header files. To ensure a recompile, make some Unreal based cpp file "dirty" like AirSimGameMode.cpp.</p>
-<h4 id="unreal-still-uses-vs2015-or-im-getting-some-link-error">Unreal still uses VS2015 or I'm getting some link error</h4>
-<p>Running several versions of VS can lead to issues when compiling UE projects. One problem that may arise is that UE will try to compile with an older version of VS which may or may not work. There are two settings in Unreal, one for for the engine and one for the project, to adjust the version of VS to be used.
-1. Edit -&gt; Editor preferences -&gt; General -&gt; Source code
-2. Edit -&gt; Project Settings -&gt; Platforms -&gt; Windows -&gt; Toolchain -&gt;CompilerVersion</p>
-<p>In some cases, these settings will still not lead to the desired result and errors such as the following might be produced: LINK : fatal error LNK1181: cannot open input file 'ws2_32.lib'</p>
-<p>To resolve such issues the following procedure can be applied:
-1. Uninstall all old versions of VS using the <a href="https://github.com/Microsoft/VisualStudioUninstaller/releases">VisualStudioUninstaller</a>
-2. Repair/Install VS2017
-3. Restart machine and install Epic launcher and desired version of the engine</p>
+<h4 id="buildcmd-error-c100-an-internal-error-has-occurred-in-the-compiler">我运行build.cmd时提示 <code>error C100 : An internal error has occurred in the compiler</code></h4>
+<p>据我们观察这个错误一般出现在VS的版本为<code>15.9.0</code>时，并且已经在AirSim代码中进行了解决。如果您使用这个VS版本，请拉取最新的AirSim代码。 </p>
+<h4 id="corecrth-no-such-file-or-directory-or-windows-sdk-version-81-not-found">提示错误 "'corecrt.h': No such file or directory" or "Windows SDK version 8.1 not found"</h4>
+<p>应该是您安装Virsual Studio时未安装 <a href="https://developercommunity.visualstudio.com/content/problem/3754/cant-compile-c-program-because-of-sdk-81cant-add-a.html">Windows SDK</a>。</p>
+<h4 id="airsimpx4">我应该怎么在AirSim中使用PX4固件？</h4>
+<p>AirSim默认使用其内置的名为<a href="../simple_flight/">simple_flight</a>的固件，而无需额外的操作。如果您希望使用PX4来操控请参阅 <a href="../px4_setup/">PX4指引</a>。</p>
+<h4 id="visual-studio">我在Visual Studio中进行了更改但是无效果</h4>
+<p>若您仅修改了header文件，有时Unreal + VS 的build系统并不会对其进行编译。如若希望进行重编译，请在诸如AirSimGameMode.cpp的cpp文件中进行一些无关紧要的修改。</p>
+<h4 id="unrealvs2015link-error">Unreal使用电脑中的VS2015或者提示“link error”</h4>
+<p>电脑中安装了数个VS会导致UE项目编译时出错。其中一个就是UE可能会尝试使用旧版本的VS来进行编译（然而会提示失败），Unreal中有两个设置项，一个是配置引擎的VS版本，另一个是配置项目的VS版本。</p>
+<ol>
+<li>Edit -&gt; Editor preferences -&gt; General -&gt; Source code</li>
+<li>Edit -&gt; Project Settings -&gt; Platforms -&gt; Windows -&gt; Toolchain -&gt;CompilerVersion</li>
+</ol>
+<p>某些情况下，这些配置可能依然没法另您取得想要的结果，可能会出现如下错误提示：LINK : fatal error LNK1181: cannot open input file 'ws2_32.lib'</p>
+<p>以下方式或可解决：</p>
+<ol>
+<li>使用<a href="https://github.com/Microsoft/VisualStudioUninstaller/releases">VisualStudioUninstaller</a>卸载旧版本VS；</li>
+<li>修复/安装 VS2017；</li>
+<li>重启电脑并且安装Epic launcher和虚幻引擎。</li>
+</ol>
               
             </div>
           </div>

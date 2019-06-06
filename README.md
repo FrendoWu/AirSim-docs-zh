@@ -1,8 +1,4 @@
 # AirSim中文文档翻译计划
-<<<<<<< HEAD
-=======
-本项目是针对微软开源项目：[AirSim](https://github.com/microsoft/airsim/)的[文档](https://microsoft.github.io/AirSim/)进行的翻译计划。
->>>>>>> 8589e7f18b5fb43c7f4c37bcd505fe7ee4867934
 
 本项目是针对微软开源项目：[AirSim](https://github.com/microsoft/airsim/)的[英文文档](https://microsoft.github.io/AirSim/)进行的翻译计划。
 

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>在Windows上构建 - AirSim中文文档</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5728Windows\u4e0a\u6784\u5efa";
+    var mkdocs_page_input_path = "build_windows.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> AirSim中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">主页</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">搭建AirSim</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../use_precompiled/">下载场景文件</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">在Windows上构建</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#windowsairsim">在Windows上构建AirSim</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">安装虚幻引擎</a></li>
+        
+            <li><a class="toctree-l4" href="#airsim">构建AirSim的步骤</a></li>
+        
+            <li><a class="toctree-l4" href="#build-unreal-environment">Build Unreal Environment</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">配置遥控器控制功能（仅限无人机）</a></li>
+        
+            <li><a class="toctree-l4" href="#airsim_1">如何使用AirSim</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#airsim-on-unity">AirSim on Unity (试验性)</a></li>
+    
+
+    <li class="toctree-l3"><a href="#faq">FAQ</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#buildcmd-error-c100-an-internal-error-has-occurred-in-the-compiler">运行build.cmd时提示 error C100 : An internal error has occurred in the compiler</a></li>
+        
+            <li><a class="toctree-l4" href="#corecrth-no-such-file-or-directory-or-windows-sdk-version-81-not-found">提示错误 "'corecrt.h': No such file or directory" or "Windows SDK version 8.1 not found"</a></li>
+        
+            <li><a class="toctree-l4" href="#airsimpx4">我应该怎么在AirSim中使用PX4固件？</a></li>
+        
+            <li><a class="toctree-l4" href="#visual-studio">我在Visual Studio中进行了更改但是无效果</a></li>
+        
+            <li><a class="toctree-l4" href="#unrealvs2015link-error">Unreal使用电脑中的VS2015或者提示“link error”</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../build_linux/">在Linux上构建</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../unreal_custenv/">创建自定义环境</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">运行AirSim</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../apis/">核心APIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../image_apis/">图像相关APIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../apis_cpp/">C++ APIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dev_workflow/">开发工作流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../settings/">设置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../camera_views/">相机视图</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../using_car/">汽车相关</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../remote_control/">遥控器控制</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../xbox_controller/">XBox控制</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../steering_wheel_installation/">方向盘控制</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../multi_vehicle/">多车模式</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sensors/">传感器</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../lidar/">LIDAR</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ros/">ROS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../playback/">运行日志</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">总体设计</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../design/">架构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../code_structure/">代码结构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../coding_guidelines/">编码指引</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../flight_controller/">飞行控制器</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../simple_flight/">简单的飞行</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hello_drone/">无人机之你好世界</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">MavLink和PX4</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../px4_setup/">为AirSim配置PX4</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../px4_sitl/">PX4之软件在环</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://youtu.be/1oY8Qu5maQQ">为Pixhawk加载AirSim</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://youtu.be/HNWdYrtw3f0">PX4上配置AirSim</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://www.youtube.com/watch?v=d_FyjKDWQfc&feature=youtu.be">调试姿态估计</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://github.com/Microsoft/AirSim/wiki/Intercepting-MavLink-messages">拦截MavLink的消息</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://github.com/Microsoft/AirSim/wiki/Rapid-Descent-on-PX4-drones">让无人机于PX4中快速下降</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../px4_build/">构建PX4</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../px4_logging/">PX4/MavLink日志</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../log_viewer/">查看MavLink日志</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">升级</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../unreal_upgrade/">更新虚幻引擎</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../upgrade_apis/">更新APIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../upgrade_settings/">更新设置</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">他人贡献的教程</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../reinforcement_learning/">强化学习</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://www.youtube.com/watch?v=y09VbdQWvQY">使用市场中的环境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://github.com/simondlevy/AirSimTensorFlow">简单的碰撞规避算法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://aka.ms/AutonomousDrivingCookbook">在Azure上的自动驾驶</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://github.com/Microsoft/AirSim/wiki/hexacopter">建设Hexacopter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://github.com/Microsoft/AirSim/wiki/moveOnPath-demo">按路径移动演示</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://github.com/Microsoft/AirSim/wiki/Point-Clouds">构建点云</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://github.com/Microsoft/AirSim/wiki/Implementing-a-Drone-Survey-script">使用无人机进行测量</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">杂项</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../custom_drone/">真实无人机上的AirSim</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cmake_linux/">在Linux上安装cmake</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hard_drive/">关于非固体硬盘的建议</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../pfm/">pfm格式</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../unreal_proj/">设置虚幻环境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../unreal_blocks/">Blocks环境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../who_is_using/">谁在使用AirSim</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../working_with_plugin_contents/">使用UE插件内容</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="https://github.com/Microsoft/AirSim/wiki/technion">方程式赛车的自动驾驶</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Support</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../faq/">FAQ</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SUPPORT/">支持</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../create_issue/">在GitHub上创建Issue</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CONTRIBUTING/">贡献</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">AirSim中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>搭建AirSim &raquo;</li>
+        
+      
+    
+    <li>在Windows上构建</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/FrendoWu/AirSim-docs-zh/edit/master/docs/build_windows.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="windowsairsim">在Windows上构建AirSim</h1>
+<h2 id="_1">安装虚幻引擎</h2>
+<ol>
+<li>
+<p><a href="https://www.unrealengine.com/download">点此下载</a> Epic Games登录器，尽管虚幻引擎是开源且免费的，但是目前步骤仍然是需要下载Epic并注册。</p>
+</li>
+<li>
+<p>运行Epic Games, 点击左侧的 <code>Library</code> 标签。 <br />
+  点击 <code>+</code>号，选择下 <strong>Unreal 4.18</strong> 。如果您安装了多个版本的虚幻引擎，请通过点击Launch旁边的下三角形确保<strong>4.18版本是<code>目前（current）</code>正在使用的版本</strong>。</p>
+</li>
+</ol>
+<p><strong>注意</strong>：如果您有基于UE4.16或者更老的版本的项目，请查阅 <a href="../unreal_upgrade/">升级指引</a> 来升级您的项目。</p>
+<h2 id="airsim">构建AirSim的步骤</h2>
+<ul>
+<li>安装 Visual Studio 2017；
+  <strong>请确保</strong>安装时勾选了<strong>VC++</strong>以及<strong>Windows SDK 8.1</strong>选项。</li>
+<li>运行<code>x64 Native Tools Command Prompt for VS 2017</code>. </li>
+<li>克隆代码仓库：<code>git clone https://github.com/Microsoft/AirSim.git</code>，然后进入到AirSim所在目录<code>cd AirSim</code>. </li>
+<li>从命令行界面运行<code>build.cmd</code>。这会在目录 <code>Unreal\Plugins</code> 生成可以拖进任意虚幻引擎项目的即用插件文件。</li>
+</ul>
+<h2 id="build-unreal-environment">Build Unreal Environment</h2>
+<p>最终，您需要一个内有环境 (environment) 的项目 (project) 来运行AirSim。AirSim内置"Blocks Environment"，或者您也可以参考<a href="../unreal_proj/">设置虚幻环境</a>来创建自己的项目。</p>
+<h2 id="_2">配置遥控器控制功能（仅限无人机）</h2>
+<p>如果您想手动控制无人机，您需要一个遥控器。请查阅 <a href="../remote_control/">遥控器控制</a> 获取更多细节。</p>
+<p>当然，您也可以通过 <a href="../apis/">APIs</a> 编写程序来进行操控，或者在 <a href="../image_apis/">计算机视觉模式</a> 下使用键盘来预览环境。</p>
+<h2 id="airsim_1">如何使用AirSim</h2>
+<p>一旦您完成了上述步骤，您就可以</p>
+<ol>
+<li>双击<code>Unreal\Environments\Blocks</code>目录下的 .sln 文件来加载Blocks project （或者您自己 <a href="../unreal_custenv/">客制</a> 的项目）。如果您未看见.sln文件，那可能是您未按照上述步骤执行。</li>
+<li>选择一个虚幻项目（project）进行开始（例如 Block project），并确保虚幻引擎的“Build”选项设置为“Develop Editor”（开发者编辑器）和x64模式。</li>
+<li>当虚幻编辑器加载后，单击“开始”按钮，小提示：进入“Edit-&gt;Editor Preferences“并搜索”CPU“，然后确保 'Use Less CPU when in Background' 未被勾选。</li>
+</ol>
+<p>参阅 <a href="../apis/">使用 APIs</a> 以及 <a href="../settings/">settings.json</a> 来开启或设置更多功能。</p>
+<h1 id="airsim-on-unity">AirSim on Unity (试验性)</h1>
+<p><a href="https://unity3d.com/">Unity</a> 是另一个非常优秀的游戏引擎，我们目前发布了一个 <a href="https://github.com/Microsoft/AirSim/tree/master/Unity">试验性</a> 的版本，其尚未完善。</p>
+<h1 id="faq">FAQ</h1>
+<h4 id="buildcmd-error-c100-an-internal-error-has-occurred-in-the-compiler">运行build.cmd时提示 <code>error C100 : An internal error has occurred in the compiler</code></h4>
+<p>据我们观察这个错误一般出现在VS的版本为<code>15.9.0</code>时，并且已经在AirSim代码中进行了解决。如果您使用这个VS版本，请拉取最新的AirSim代码。 </p>
+<h4 id="corecrth-no-such-file-or-directory-or-windows-sdk-version-81-not-found">提示错误 "'corecrt.h': No such file or directory" or "Windows SDK version 8.1 not found"</h4>
+<p>应该是您安装Virsual Studio时未安装 <a href="https://developercommunity.visualstudio.com/content/problem/3754/cant-compile-c-program-because-of-sdk-81cant-add-a.html">Windows SDK</a>。</p>
+<h4 id="airsimpx4">我应该怎么在AirSim中使用PX4固件？</h4>
+<p>AirSim默认使用其内置的名为<a href="../simple_flight/">simple_flight</a>的固件，而无需额外的操作。如果您希望使用PX4来操控请参阅 <a href="../px4_setup/">PX4指引</a>。</p>
+<h4 id="visual-studio">我在Visual Studio中进行了更改但是无效果</h4>
+<p>若您仅修改了header文件，有时Unreal + VS 的build系统并不会对其进行编译。如若希望进行重编译，请在诸如AirSimGameMode.cpp的cpp文件中进行一些无关紧要的修改。</p>
+<h4 id="unrealvs2015link-error">Unreal使用电脑中的VS2015或者提示“link error”</h4>
+<p>电脑中安装了数个VS会导致UE项目编译时出错。其中一个就是UE可能会尝试使用旧版本的VS来进行编译（然而会提示失败），Unreal中有两个设置项，一个是配置引擎的VS版本，另一个是配置项目的VS版本。</p>
+<ol>
+<li>Edit -&gt; Editor preferences -&gt; General -&gt; Source code</li>
+<li>Edit -&gt; Project Settings -&gt; Platforms -&gt; Windows -&gt; Toolchain -&gt;CompilerVersion</li>
+</ol>
+<p>某些情况下，这些配置可能依然没法另您取得想要的结果，可能会出现如下错误提示：LINK : fatal error LNK1181: cannot open input file 'ws2_32.lib'</p>
+<p>以下方式或可解决：</p>
+<ol>
+<li>使用<a href="https://github.com/Microsoft/VisualStudioUninstaller/releases">VisualStudioUninstaller</a>卸载旧版本VS；</li>
+<li>修复/安装 VS2017；</li>
+<li>重启电脑并且安装Epic launcher和虚幻引擎。</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../build_linux/" class="btn btn-neutral float-right" title="在Linux上构建">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../use_precompiled/" class="btn btn-neutral" title="下载场景文件"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/FrendoWu/AirSim-docs-zh/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../use_precompiled/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../build_linux/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

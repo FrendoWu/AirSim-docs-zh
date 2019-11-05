@@ -1,21 +1,22 @@
-# Using C++ APIs for AirSim
+# 在 AirSim 上使用C++的API
 
-Please read [general API doc](apis.md) first if you haven't already. This document describes C++ examples and other C++ specific details.
+本文的提供了C++调用API的样例和一些切合C++特性的细节，在阅读本文档之前请先阅读 [通用 API 文档](apis.md)。
 
-## Quick Start
-Fastest way to get started is to open AirSim.sln in Visual Studio 2017. You will see [Hello Car](https://github.com/Microsoft/AirSim/tree/master/HelloCar/) and [Hello Drone](https://github.com/Microsoft/AirSim/tree/master/HelloDrone/) examples in the solution. These examples will show you the include paths and lib paths you will need to setup in your VC++ projects. If you are using Linux then you will specify these paths either in your [cmake file](https://github.com/Microsoft/AirSim/tree/master/cmake//HelloCar/CMakeLists.txt) or on compiler command line.
+## 快速开始
 
-#### Include and Lib Folders
-* Include folders: `$(ProjectDir)..\AirLib\deps\rpclib\include;include;$(ProjectDir)..\AirLib\deps\eigen3;$(ProjectDir)..\AirLib\include`
-* Dependencies: `rpc.lib`
-* Lib folders: `$(ProjectDir)\..\AirLib\deps\MavLinkCom\lib\$(Platform)\$(Configuration);$(ProjectDir)\..\AirLib\deps\rpclib\lib\$(Platform)\$(Configuration);$(ProjectDir)\..\AirLib\lib\$(Platform)\$(Configuration)`
+最快的入门方式是在 Visual Studio 2017 内打开 AirSim.sln。您将在解决方案中看到名为 [Hello Car](https://github.com/Microsoft/AirSim/tree/master/HelloCar/) 以及 [Hello Drone](https://github.com/Microsoft/AirSim/tree/master/HelloDrone/) 的样例代码。这些代码内包含配置好的include路径以及lib路径，您也可以通过参考来迅速的在其他VC++项目中使用。如果您使用的是Linux，那么您需要在 [cmake file](https://github.com/Microsoft/AirSim/tree/master/cmake//HelloCar/CMakeLists.txt) 中配置好相关路径，或者在编译器命令行中传递相应路径。
+
+#### Include 以及 Lib 文件夹
+* Include 文件夹: `$(ProjectDir)..\AirLib\deps\rpclib\include;include;$(ProjectDir)..\AirLib\deps\eigen3;$(ProjectDir)..\AirLib\include`
+* 依赖: `rpc.lib`
+* Lib 文件夹: `$(ProjectDir)\..\AirLib\deps\MavLinkCom\lib\$(Platform)\$(Configuration);$(ProjectDir)\..\AirLib\deps\rpclib\lib\$(Platform)\$(Configuration);$(ProjectDir)\..\AirLib\lib\$(Platform)\$(Configuration)`
 
 ## Hello Car
 
-Here's how to use AirSim APIs using Python to control simulated car (see also [Python example](apis.md#hello_car)):
+以下代码展示的是如何使用 AirSim APIs  来控制仿真车辆（[Python 版本](apis.md#hello_car)的代码见此）:
 
 ```cpp
-
+// 准备好运行这个样例
 // ready to run example: https://github.com/Microsoft/AirSim/blob/master/HelloCar/main.cpp
 
 #include <iostream>
@@ -24,7 +25,7 @@ Here's how to use AirSim APIs using Python to control simulated car (see also [P
 int main() 
 {
     msr::airlib::CarRpcLibClient client;
-    client.enableApiControl(true); //this disables manual control
+    client.enableApiControl(true); //在此禁止手工控制
     CarControllerBase::CarControls controls;
 
     std::cout << "Press enter to drive forward" << std::endl; std::cin.get();
@@ -74,7 +75,7 @@ int main()
     client.takeoffAsync(5)->waitOnLastTask();
 
     cout << "Press Enter to move 5 meters in x direction with 1 m/s velocity" << endl; cin.get();  
-    auto position = client.getMultirotorState().getPosition(); // from current location
+    auto position = client.getMultirotorState().getPosition(); // 从当前位置开始移动
     client.moveToPositionAsync(position.x() + 5, position.y(), position.z(), 1)->waitOnLastTask();
 
     cout << "Press Enter to land" << endl; cin.get();
@@ -84,8 +85,9 @@ int main()
 }
 ```
 
-## See Also
-* [Examples](../Examples) of how to use internal infrastructure in AirSim in your other projects
-* [DroneShell](../DroneShell) app shows how to make simple interface using C++ APIs to control drones
+## 进一步深入
+
+* 在其他的AirSim项目中使用内部硬件（internal infrastructure）的[示例](../Examples)。
+* [DroneShell](../DroneShell) 这个app展示了使用C++ APIs来对无人机进行简单的交互操控。
 * [Python APIs](apis.md)
 

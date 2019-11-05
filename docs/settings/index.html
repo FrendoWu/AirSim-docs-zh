@@ -635,25 +635,25 @@ Linux: <code>~/Documents/AirSim</code></p>
 <p><a href="https://youtu.be/1BeCEZmQyp0"><img alt="AirSim Drone Demo Video" src="../images/camera_noise_demo.png" /></a></p>
 <h4 id="random-noise">Random noise</h4>
 <p>This adds random noise blobs with following parameters.
-<em> <code>RandContrib</code>: This determines blend ratio of noise pixel with image pixel, 0 means no noise and 1 means only noise.
-</em> <code>RandSpeed</code>: This determines how fast noise fluctuates, 1 means no fluctuation and higher values like 1E6 means full fluctuation.
-<em> <code>RandSize</code>: This determines how coarse noise is, 1 means every pixel has its own noise while higher value means more than 1 pixels share same noise value.
-</em> <code>RandDensity</code>: This determines how many pixels out of total will have noise, 1 means all pixels while higher value means lesser number of pixels (exponentially).</p>
+* <code>RandContrib</code>: This determines blend ratio of noise pixel with image pixel, 0 means no noise and 1 means only noise.
+* <code>RandSpeed</code>: This determines how fast noise fluctuates, 1 means no fluctuation and higher values like 1E6 means full fluctuation.
+* <code>RandSize</code>: This determines how coarse noise is, 1 means every pixel has its own noise while higher value means more than 1 pixels share same noise value.
+* <code>RandDensity</code>: This determines how many pixels out of total will have noise, 1 means all pixels while higher value means lesser number of pixels (exponentially).</p>
 <h4 id="horizontal-bump-distortion">Horizontal bump distortion</h4>
 <p>This adds horizontal bumps / flickering / ghosting effect.
-<em> <code>HorzWaveContrib</code>: This determines blend ratio of noise pixel with image pixel, 0 means no noise and 1 means only noise.
-</em> <code>HorzWaveStrength</code>: This determines overall strength of the effect.
-<em> <code>HorzWaveVertSize</code>: This determines how many vertical pixels would be effected by the effect.
-</em> <code>HorzWaveScreenSize</code>: This determines how much of the screen is effected by the effect.</p>
+* <code>HorzWaveContrib</code>: This determines blend ratio of noise pixel with image pixel, 0 means no noise and 1 means only noise.
+* <code>HorzWaveStrength</code>: This determines overall strength of the effect.
+* <code>HorzWaveVertSize</code>: This determines how many vertical pixels would be effected by the effect.
+* <code>HorzWaveScreenSize</code>: This determines how much of the screen is effected by the effect.</p>
 <h4 id="horizontal-noise-lines">Horizontal noise lines</h4>
 <p>This adds regions of noise on horizontal lines.
-<em> <code>HorzNoiseLinesContrib</code>: This determines blend ratio of noise pixel with image pixel, 0 means no noise and 1 means only noise.
-</em> <code>HorzNoiseLinesDensityY</code>: This determines how many pixels in horizontal line gets affected.
+* <code>HorzNoiseLinesContrib</code>: This determines blend ratio of noise pixel with image pixel, 0 means no noise and 1 means only noise.
+* <code>HorzNoiseLinesDensityY</code>: This determines how many pixels in horizontal line gets affected.
 * <code>HorzNoiseLinesDensityXY</code>: This determines how many lines on screen gets affected.</p>
 <h4 id="horizontal-line-distortion">Horizontal line distortion</h4>
 <p>This adds fluctuations on horizontal line.
-<em> <code>HorzDistortionContrib</code>: This determines blend ratio of noise pixel with image pixel, 0 means no noise and 1 means only noise.
-</em> <code>HorzDistortionStrength</code>: This determines how large is the distortion.</p>
+* <code>HorzDistortionContrib</code>: This determines blend ratio of noise pixel with image pixel, 0 means no noise and 1 means only noise.
+* <code>HorzDistortionStrength</code>: This determines how large is the distortion.</p>
 <h3 id="gimbal">Gimbal</h3>
 <p>The <code>Gimbal</code> element allows to freeze camera orientation for pitch, roll and/or yaw. This setting is ignored unless <code>ImageType</code> is -1. The <code>Stabilization</code> is defaulted to 0 meaning no gimbal i.e. camera orientation changes with body orientation on all axis. The value of 1 means full stabilization. The value between 0 to 1 acts as a weight for fixed angles specified (in degrees, in world-frame) in <code>Pitch</code>, <code>Roll</code> and <code>Yaw</code> elements and orientation of the vehicle body. When any of the angles is omitted from json or set to NaN, that angle is not stabilized (i.e. it moves along with vehicle body).</p>
 <h2 id="vehicles-settings">Vehicles Settings</h2>
